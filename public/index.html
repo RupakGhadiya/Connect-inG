@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connect-inG</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+
+</head>
+
+<body>
+    
+
+    <div class="bg">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+
+            <div>
+                <div class="navbar-brand"><a href="#">Connect-<span>inG</span></a></div>
+            </div>
+
+            <buttom class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <spam class="navbar-toggler-icon"></spam>
+            </buttom>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                </form>
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link ">
+                            <i class="fas fa-home"></i><br>
+
+                            Home
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link ">
+                            <i class="fas fa-users"></i><br>
+
+                            About
+
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link ">
+                            <i class="fas fa-tools"></i><br>
+
+                            Services
+
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link ">
+                            <i class="fas fa-headset"></i><br>
+
+                            Contact
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <button onclick="login()" class="btn-hover color-3">Login/Signup </button>
+                    </li>
+                    <li class="nav-item2">
+                        <a href="./Job List/profile page.html" class="nav-link ">
+                            <i class="fas fa-user-circle"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- ................Landing background ......................  -->
+
+        <div class="row custom-section d-flex align-items-center">
+            <div class="col-12 col-lg-6 text-center">
+                <img src="./img/5.png" alt="" id="img1">
+                <h2>Hire / Get Employed</h2>
+                <h4>.....You can Hire expert or Be one of them.....</h4>
+                <div class="buttons">
+                    <button onclick="hire_now()" class="btn-hover color-3">Hire Now</button>
+                    <button onclick="Workers()" class="btn-hover color-3">Get Job</button>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 text-center">
+                <img src="./img/6.png" alt="" id="img2">
+                <h2>Selling / Buying</h2>
+                <h4>.....You can Buy or Sell products.....</h4>
+                <div class="buttons">
+                    <button onclick="sell_product()" class="btn-hover color-3">Sell Products</button>
+                    <button onclick="Buy()" class="btn-hover color-3">Buy Products</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ........................How do we operate.............  -->
+
+
+    <div class="pt-5 pb-5">
+        <div class="container">
+            <div class="row">
+                <div class="section-head col-sm-12">
+                    <h4>__How <span> Do We </span> Operate?__</h4>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item"><span class="icon feature_box_col_six"><i class="fas fa-mail-bulk"></i></span>
+                        <h6>Advertisement</h6>
+                        <p>You can / have to Advertse your self, your work or your Products, Which is been display
+                            acordind to the requirement.____ ____ _____ _____ _____ </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item"><span class="icon feature_box_col_one"><i class="fas fa-user-tie"></i></span>
+                        <h6>Be Owner</h6>
+                        <p>Be the work owner, and you can hire a workers acording to your requirement depends on a
+                            Advertisement if you have added.___ _____ _____ _____ _____ </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item"><span class="icon feature_box_col_two"><i class="fas fa-briefcase"></i></span>
+                        <h6>Be Worker</h6>
+                        <p>Be the expert of your work, if you are in search of any work , Owner can hire you according
+                            to your experties or you can also Contact to owner.___ _____ _____ ___</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item"><span class="icon feature_box_col_three"><i
+                                class="fas fa-shopping-cart"></i></i></span>
+                        <h6>Buy Products</h6>
+                        <p>In search of any product in about your work You can contact a Seller in Hollsell market or
+                            retailer market as per requirement.____ _____ _____ ______ _____ _____ ___ </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item"><span class="icon feature_box_col_four"><i class="fab fa-sellsy"></i></span>
+                        <h6>Be Seller</h6>
+                        <p>To Increase your sell, add your Product discription to portal, Person will contact accordind
+                            to their requirement.____ _____ _____ ____ _____ _____ _____ _____</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="item"><span class="icon feature_box_col_five"><i
+                                class="fas fa-hand-holding-usd"></i></span>
+                        <h6>Money Transition</h6>
+                        <p>Your money Transition will be manage by portal wather you are seller, buyer, owner or Worker,
+                            According to a deal which is final by you, You have option of bargain too.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ........................Contact us ...................  -->
+
+    <div class="row2 no-gutters my-5 mx-5">
+        <section class="get_in_touch" id="contact">
+            <h1 class="title"> GET IN TOUCH </h1>
+            <div class="container">
+                <div class="contact-form row">
+
+                    <div class="form-field col-lg-6">
+                        <input id="userName" class="input-text" type="text" name="">
+                        <label for="name" class="label"> NAME </label>
+                    </div>
+
+                    <div class="form-field col-lg-6">
+                        <input id="userEmail" class="input-text" type="email" name="">
+                        <label for="email" class="label"> EMAIL</label>
+                    </div>
+
+                    <div class="form-field col-lg-6">
+                        <input id="userCompany" class="input-text" type="text" name="">
+                        <label for="company" class="label"> COMPANY NAME </label>
+                    </div>
+
+                    <div class="form-field col-lg-6">
+                        <input id="userPhone" class="input-text" type="number" name="">
+                        <label for="phone" class="label"> CONTACT NO. </label>
+                    </div>
+
+                    <div class="form-field col-lg-12">
+                        <input id="userMessage" class="input-text" type="text" name="">
+                        <label for="message" class="label"> MESSAGE </label>
+                    </div>
+
+                    <div class="form-field col-lg-12">
+                        <button id="submit" class="btn-hover color-3">Submit</button>
+                    </div>
+
+                </div>
+        </section>
+    </div>
+
+    <!-- ...................... Footer ...............  -->
+
+    <footer class="page-footer bg-dark">
+
+        <div class="bg-success">
+            <div class="container">
+                <div class="row py-3 d-flex align-items-center ">
+
+                    <div class="social-links mx-auto">
+                        <div class="social-btn flex-center" id="twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span>@Connect-inG</span>
+                        </div>
+
+                        <div class="social-btn flex-center" id="linkedin">
+                            <i class="fab fa-linkedin-in"></i>
+                            <span>@Connect-inG</span>
+                        </div>
+
+                        <div class="social-btn flex-center" id="insta">
+                            <i class="fab fa-instagram"></i>
+                            <span>@Connect-inG</span>
+                        </div>
+
+                        <div class="social-btn flex-center" id="fb">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>@Connect-inG</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center text-md-left mt-5">
+            <div class="row text-white">
+
+                <div class="col-md-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Profile</h6>
+                    <hr class="bg-success mb-4 mt-0 d-inline-block mx-auto" style="width: 85px; height: 2px;">
+
+                    <ul class="list-unstyled">
+                        <li class="my-2">Orders </li>
+                        <li class="my-2">Profile Details </li>
+                        <li class="my-2">Data</li>
+                        <li class="my-2">Certificate</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Community</h6>
+                    <hr class="bg-success mb-4 mt-0 d-inline-block mx-auto" style="width: 120px; height: 2px;">
+
+                    <ul class="list-unstyled">
+                        <li class="my-2">Details </li>
+                        <li class="my-2">Help </li>
+                        <li class="my-2">Support </li>
+                        <li class="my-2">Terms & condition </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Useful Links</h6>
+                    <hr class="bg-success mb-4 mt-0 d-inline-block mx-auto" style="width: 150px; height: 2px;">
+
+                    <ul class="list-unstyled">
+                        <li class="my-2">Hire</li>
+                        <li class="my-2">Get job</li>
+                        <li class="my-2">Sell </li>
+                        <li class="my-2">Buy</li>
+                        <li class="my-2">Contact</li>
+                        <li class="my-2">FAQs</li>
+                        <li class="my-2">About</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 mx-auto mb-4">
+                    <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                    <hr class="bg-success mb-4 mt-0 d-inline-block mx-auto" style="width: 95px; height: 2px;">
+
+                    <ul class="list-unstyled">
+                        <li class="my-2"> <i class="fas2 fas fa-map-marker-alt"><br>******</i> </li>
+                        <li class="my-2"> <i class="fas2 fas fa-envelope"></i><br> support@****.com</li>
+                        <li class="my-2"> <i class="fas2 fas fa-phone"><br> +91**********</i></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        var firebaseConfig = {
+            apiKey: "AIzaSyCfgEovLJ_fNp61zc3XO37fQOlFBbuFdLE",
+            authDomain: "connect-ing-559c9.firebaseapp.com",
+            databaseURL: "https://connect-ing-559c9-default-rtdb.firebaseio.com",
+            projectId: "connect-ing-559c9",
+            storageBucket: "connect-ing-559c9.appspot.com",
+            messagingSenderId: "530561683637",
+            appId: "1:530561683637:web:67e8b53cc4c312afbb6efc",
+            measurementId: "G-VVFF3M3ZJZ"
+        };
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+
+        var userNameF, userEmailF, userCompanyF, userPhoneF, userMessageF;
+
+        function Ready() {
+            userNameF = document.getElementById("userName").value;
+            userEmailF = document.getElementById("userEmail").value;
+            userCompanyF = document.getElementById("userCompany").value;
+            userPhoneF = document.getElementById("userPhone").value;
+            userMessageF = document.getElementById("userMessage").value;
+        }
+
+        document.getElementById('submit').onclick = function () {
+            Ready();
+            firebase.database().ref('ContactUs/' + userNameF).set({
+                userName: userNameF,
+                userEmail: userEmailF,
+                userCompany: userCompanyF,
+                userPhone: userPhoneF,
+                userMessage: userMessageF,
+            });
+        }
+
+    </script>
+    <script src="script.js"> </script>
+</body>
+
+</html>
