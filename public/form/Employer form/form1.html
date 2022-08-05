@@ -1,0 +1,195 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title> Fill in Details </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
+
+
+
+</head>
+
+<body>
+  <div class="row2 no-gutters my-5 mx-5">
+    <section class="Post_a_Job">
+      <h1 class="title"> POST A JOB </h1>
+      <div class="container">
+        <div class="contact-form row">
+          <div class="form-field col-lg-6">
+            <input id="title" class="input-text" type="text" name="">
+            <label for="name" class="label"> JOB TITLE </label>
+          </div>
+          <div class="form-field col-lg-6">
+            <input id="experience" class="input-text" type="number" placeholder="" name="">
+            <label for="number" class="label"> EXPERIENCE(IN YEARS) </label>
+          </div>
+          <div class="form-field col-lg-6">
+            <input id="company" class="input-text" type="text" name="">
+            <label for="company" class="label"> COMPANY NAME </label>
+          </div>
+          <div class="form-field col-lg-6">
+            <input id="phone" class="input-text" type="number" name="">
+            <label for="phone" class="label"> CONTACT NO. </label>
+          </div>
+          <div class="form-field col-lg-6">
+            <input id="min_salery" class="input-text" type="number" name="">
+            <label for="phone" class="label"> MIN SALARY </label>
+          </div>
+          <div class="form-field col-lg-6">
+            <input id="max_salery" class="input-text" type="number" name="">
+            <label for="phone" class="label"> MAX SALARY </label>
+          </div>
+          <div class="form-field col-lg-6">
+            <input id="type" class="input-text" type="text" name="">
+            <label for="message" class="label"> JOB TYPE * </label>
+          </div>
+          <div class="form-field col-lg-6">
+            <input id="language" class="input-text" type="text" name="">
+            <label for="message" class="label"> LANGUAGES * </label>
+          </div>
+          <div class="form-field col-lg-12">
+            <input id="description" class="input-text" type="text" name="">
+            <label for="message" class="label"> JOB DESCRIPTION </label>
+          </div>
+          <div class="form-field col-lg-12">
+            <label for="phone" class="label1">Preferred Job Timing*</label><br />
+            <div class="form-check form-check-inline col-lg-3">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+              <label class="form-check-label" for="inlineRadio1">9:30am to 5pm</label>
+            </div>
+            <div class="form-check form-check-inline col-lg-3">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+              <label class="form-check-label" for="inlineRadio2">10:00am to 5:30pm</label>
+            </div>
+            <div class="form-check form-check-inline col-lg-3">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option2">
+              <label class="form-check-label" for="inlineRadio3">10:30am to 6:00pm</label>
+            </div>
+          </div>
+          <div class="form-field col-lg-6">
+            <div class="dropdown color-white">
+              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Job Area</option>
+                <option value="1">BANER</option>
+                <div class="dropdown-divider"></div>
+                <option value="2">HADAPSAR</option>
+                <div class="dropdown-divider"></div>
+                <option value="3">KOTHRUD</option>
+                <div class="dropdown-divider"></div>
+                <option value="4">DECCAN</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field col-lg-6">
+            <div class="dropdown color-white">
+              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>JOINING TYPE</option>
+                <option value="1">IMMEDIATE</option>
+                <div class="dropdown-divider"></div>
+                <option value="2">NEXT MONTH</option>
+                <div class="dropdown-divider"></div>
+                <option value="3">2 HOURS</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field col-lg-12">
+            <label for="phone" class="label1">Preferred Job Type*</label><br />
+            <div class="form-check form-check-inline col-lg-3">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option1">
+              <label class="form-check-label1" for="inlineRadio4">HOURLY BASIS</label>
+            </div>
+            <div class="form-check form-check-inline col-lg-3">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option2">
+              <label class="form-check-label1" for="inlineRadio5">DAILY BASIS</label>
+            </div>
+            <div class="form-check form-check-inline col-lg-3">
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option2">
+              <label class="form-check-label1" for="inlineRadio6">MONTHLY BASIS</label>
+            </div>
+          </div>
+          <div class="form-field col-lg-8">
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFileInput" aria-describedby="customFileInput">
+                <label class="custom-file-label" for="customFileInput">Select file</label>
+              </div>
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="customFileInput">Upload</button>
+              </div>
+            </div>
+          </div>
+          <div class="form-field col-lg-12"></div>
+          <button onclick="hire()" class="submit-btn align-center" id="hire">Submit</button>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCfgEovLJ_fNp61zc3XO37fQOlFBbuFdLE",
+      authDomain: "connect-ing-559c9.firebaseapp.com",
+      databaseURL: "https://connect-ing-559c9-default-rtdb.firebaseio.com",
+      projectId: "connect-ing-559c9",
+      storageBucket: "connect-ing-559c9.appspot.com",
+      messagingSenderId: "530561683637",
+      appId: "1:530561683637:web:67e8b53cc4c312afbb6efc",
+      measurementId: "G-VVFF3M3ZJZ"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    var titleF, experienceF, companyF, phoneF, min_saleryF, max_saleryF, typeF, languageF, descriptionF;
+
+    function Ready() {
+      titleF = document.getElementById("title").value;
+      experienceF = document.getElementById("experience").value;
+      companyF = document.getElementById("company").value;
+      phoneF = document.getElementById("phone").value;
+      min_saleryF = document.getElementById("min_salery").value;
+      max_saleryF = document.getElementById("max_salery").value;
+      typeF = document.getElementById("type").value;
+      languageF = document.getElementById("language").value;
+      descriptionF = document.getElementById("description").value;
+    }
+
+    document.getElementById('hire').onclick = function () {
+      Ready();
+      firebase.database().ref('HireNow/' + titleF).set({
+        titleOfSeller: titleF,
+        Experienve: experienceF,
+        Company_name: companyF,
+        phone_no: phoneF,
+        min_salery: min_saleryF,
+        max_salery: max_saleryF,
+        job_type: typeF,
+        language: languageF,
+        description: descriptionF
+
+      });
+    }
+
+    function hire(){
+      window.location = "../Sell product/form2.html"
+    }
+    document.querySelector('.custom-file-input').addEventListener('change', function (e) {
+      var name = document.getElementById("customFileInput").files[0].name;
+      var nextSibling = e.target.nextElementSibling
+      nextSibling.innerText = name
+    })
+
+  </script>
+</body>
+
+</html>

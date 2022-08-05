@@ -1,0 +1,161 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title> Sell a Product </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!------firebase linking-------->
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
+
+</head>
+
+<body>
+  <div class="row2 no-gutters my-5 mx-5">
+    <section class="get_in_touch">
+      <h1 class="title"> SELL A PRODUCT </h1>
+      <div class="container">
+        <div class="contact-form row">
+
+          <div class="form-field col-lg-6">
+            <input id="product_type" class="input-text" type="text" name="">
+            <label for="name" class="label"> PRODUCT TYPE </label>
+          </div>
+
+          <div class="form-field col-lg-6">
+            <input id="price" class="input-text" type="number" placeholder="" name="">
+            <label for="number" class="label"> PRICE </label>
+          </div>
+
+          <div class="form-field col-lg-6">
+            <input id="quantity" class="input-text" type="text" name="">
+            <label for="company" class="label"> QUANTITY AVAILABLE</label>
+          </div>
+
+          <div class="form-field col-lg-6">
+            <input id="seller_name" class="input-text" type="text" name="">
+            <label for="phone" class="label"> SELLER NAME </label>
+          </div>
+
+          <div class="form-field col-lg-6">
+            <input id="location" class="input-text" type="text" name="">
+            <label for="phone" class="label"> SELLER LOCATION </label>
+          </div>
+          <div class="form-field col-lg-6">
+            <input id="conatct" class="input-text" type="number" name="">
+            <label for="phone" class="label"> SELLER CONTACT NO. </label>
+          </div>
+
+          <div class="form-field col-lg-6">
+            <div class="dropdown color-white">
+              <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Delivery Options</option>
+                <option value="1">Door Step</option>
+                <div class="dropdown-divider"></div>
+                <option value="2">Self Pick-Up</option>
+                <div class="dropdown-divider"></div>
+                <option value="3">Door Step and Self Pick-Up</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field col-lg-6">
+            <div class="input-group">
+              <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFileInput" aria-describedby="customFileInput">
+                <label class="custom-file-label" for="customFileInput">Product Image</label>
+              </div>
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button" id="customFileInput">Upload</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-field col-lg-12">
+            <label for="phone" class="label1">PAYMENT OPTIONS</label><br /><br>
+            <div class="payment_options" role="group" aria-label="Basic example">
+              <input type="checkbox" id="cash" name="cash" value="cash">
+              <label class="payment" for="cash"> Cash</label>
+
+              <input type="checkbox" id="card" name="card" value="card">
+              <label class="payment" for="card"> Card </label>
+
+              <input type="checkbox" id="cheque" name="cheque" value="cheque">
+              <label class="payment" for="cheque"> Cheque </label>
+
+              <input type="checkbox" id="banking" name="banking" value="banking">
+              <label class="payment" for="banking"> Internet Banking </label>
+
+              <input type="checkbox" id="upi" name="upi" value="upi">
+              <label class="payment" for="upi"> UPI Payment </label>
+            </div>
+          </div>
+
+          <div class="form-field col-lg-12">
+            <button class="submit-btn align-centre" id="submit">Submit</button>
+
+          </div>
+
+        </div>
+
+    </section>
+  </div>
+
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCfgEovLJ_fNp61zc3XO37fQOlFBbuFdLE",
+      authDomain: "connect-ing-559c9.firebaseapp.com",
+      databaseURL: "https://connect-ing-559c9-default-rtdb.firebaseio.com",
+      projectId: "connect-ing-559c9",
+      storageBucket: "connect-ing-559c9.appspot.com",
+      messagingSenderId: "530561683637",
+      appId: "1:530561683637:web:67e8b53cc4c312afbb6efc",
+      measurementId: "G-VVFF3M3ZJZ"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    var product_typeF, priceF, quantityF, seller_nameF, locationF, conatctF;
+
+    function Ready() {
+      product_typeF = document.getElementById("product_type").value;
+      priceF = document.getElementById("price").value;
+      quantityF = document.getElementById("quantity").value;
+      seller_nameF = document.getElementById("seller_name").value;
+      locationF = document.getElementById("location").value;
+      conatctF = document.getElementById("conatct").value;
+      }
+
+    document.getElementById('submit').onclick = function () {
+      Ready();
+      firebase.database().ref('Seller/' + product_typeF).set({
+        product_type: product_typeF,
+        price: priceF,
+        quantity: quantityF,
+        seller_name: seller_nameF,
+        location: locationF,
+        conatct: conatctF,
+        
+      });
+    }
+
+
+    document.querySelector('.custom-file-input').addEventListener('change', function (e) {
+      var name = document.getElementById("customFileInput").files[0].name;
+      var nextSibling = e.target.nextElementSibling
+      nextSibling.innerText = name
+    })
+
+  </script>
+</body>
+
+</html>
